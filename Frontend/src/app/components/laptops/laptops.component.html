@@ -1,0 +1,27 @@
+<div class="container cardGrid">
+  <div *ngFor="let laptop of Laptops" class="card my-2" style="width: 18rem">
+    <img
+      class="card-img-top"
+      src="{{ laptop.imageUrl }}"
+      alt="Card image cap"
+      style="width: 125px; height: 100px; align-self: center"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ laptop.title }}</h5>
+      <p class="card-text">
+        {{ laptop.description }}
+      </p>
+      <p class="card-text">
+        {{ laptop.price | currency }}
+      </p>
+      <div class="Rating">
+        <p>Rating</p>
+        <p class="ratingProduct">{{ laptop.rating }}</p>
+      </div>
+
+      <button class="btn btn-warning" (click)="SaveCart(laptop)">
+        Add To Cart
+      </button>
+    </div>
+  </div>
+</div>
