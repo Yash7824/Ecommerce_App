@@ -8,6 +8,9 @@ import { HomeComponent } from './components/home/home.component';
 import { LaptopsComponent } from './components/laptops/laptops.component';
 import { FormsModule } from '@angular/forms';
 import { CartComponent } from './components/cart/cart.component';
+import { MobileComponent } from './components/mobile/mobile.component';
+import { BookComponent } from './components/book/book.component';
+import { ClothComponent } from './components/cloth/cloth.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,9 @@ import { CartComponent } from './components/cart/cart.component';
     HomeComponent,
     LaptopsComponent,
     CartComponent,
+    MobileComponent,
+    BookComponent,
+    ClothComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

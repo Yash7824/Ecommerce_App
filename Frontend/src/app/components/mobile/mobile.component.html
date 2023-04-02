@@ -1,0 +1,27 @@
+<div class="container cardGrid">
+  <div *ngFor="let mobile of Mobiles" class="card my-2" style="width: 18rem">
+    <img
+      class="card-img-top"
+      src="{{ mobile.imageUrl }}"
+      alt="Card image cap"
+      style="width: 125px; height: 100px; align-self: center"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ mobile.title }}</h5>
+      <p class="card-text">
+        {{ mobile.description }}
+      </p>
+      <p class="card-text">
+        {{ mobile.price | currency }}
+      </p>
+      <div class="Rating">
+        <p>Rating</p>
+        <p class="ratingProduct">{{ mobile.rating }}</p>
+      </div>
+
+      <button class="btn btn-warning" (click)="SaveCart(mobile)">
+        Add To Cart
+      </button>
+    </div>
+  </div>
+</div>
