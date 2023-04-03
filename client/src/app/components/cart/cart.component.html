@@ -1,0 +1,45 @@
+<!-- <div class="container w-25 my-2">
+  <button class="btn btn-dark" style="margin-left: 135px" (click)="ShowTotal()">
+    Show Total
+  </button>
+  <div class="my-1" *ngIf="sumOfProducts > 0">
+    <p>{{ sumOfProducts }}</p>
+  </div>
+</div> -->
+
+<div class="container w-25 my-2" *ngIf="sumOfProducts > 0">
+  <input type="number" class="form-control" [(ngModel)]="sumOfProducts" />
+</div>
+
+<div class="container cardGrid">
+  <div
+    *ngFor="let product of productList"
+    class="card my-2"
+    style="width: 18rem"
+  >
+    <img
+      class="card-img-top"
+      src="{{ product.imageUrl }}"
+      alt="Card image cap"
+      style="width: 125px; height: 100px; align-self: center"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ product.title }}</h5>
+      <p class="card-text">
+        {{ product.description }}
+      </p>
+      <p class="card-text">
+        {{ product.price | currency }}
+      </p>
+      <div class="Rating">
+        <p>Rating</p>
+        <p class="ratingProduct">{{ product.rating }}</p>
+      </div>
+
+      <button class="btn btn-primary">Buy Now</button>
+      <button class="btn btn-danger mx-2" (click)="RemoveProduct(product)">
+        Remove
+      </button>
+    </div>
+  </div>
+</div>

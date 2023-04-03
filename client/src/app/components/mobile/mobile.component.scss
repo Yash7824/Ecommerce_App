@@ -1,0 +1,22 @@
+.cardGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 10px;
+    column-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.Rating{
+    display: flex;
+    margin-left: 90px;
+}
+
+.ratingProduct{
+    background-color: rgb(20, 247, 20);
+    border-radius: 5px;
+    width: 2rem;
+    margin-left: 2px;
+    
+}
