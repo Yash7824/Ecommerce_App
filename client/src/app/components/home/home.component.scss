@@ -4,10 +4,15 @@
     row-gap: 10px;
     column-gap: 10px;
     justify-content: center;
-    align-items: center;
     text-align: center;
-    background-image: linear-gradient(to left top, #370522, #4e3869, #3872ae, #00afdb, #12ebe7);
+    background-image: linear-gradient(to top, #051937, #04436a, #00739c, #00a7ca, #16def0);
+    width: 100vw;
+    height: 92vh;
+    overflow: hidden;
+    position: fixed;
+    
 }
+
 
 .cardGrid{
     background-image: linear-gradient(to right bottom, #f35c7b, #ff7249, #f59b00, #c4c600, #5ceb12);

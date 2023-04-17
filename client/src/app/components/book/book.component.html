@@ -1,12 +1,15 @@
-<div class="container cardGrid">
-  <div *ngFor="let book of Books" class="card my-2" style="width: 18rem">
-    <img
-      class="card-img-top"
-      src="{{ book.imageUrl }}"
-      alt="Card image cap"
-      style="width: 125px; height: 100px; align-self: center"
-    />
-    <div class="card-body">
+<div class="Product--container">
+  <div *ngFor="let book of Books" class="Card--Container card">
+    <div class="my-2 Image--class">
+      <img
+        class="img--class"
+        src="{{ book.imageUrl }}"
+        alt="Card image cap"
+        style="width: 125px; height: 140px"
+      />
+    </div>
+
+    <div class="card-body Card--Body">
       <h5 class="card-title">{{ book.title }}</h5>
       <p class="card-text">
         {{ book.description }}

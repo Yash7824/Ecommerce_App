@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/Product';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -7,21 +7,23 @@ import { CartService } from 'src/app/services/cart.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
 })
-export class CartComponent implements OnInit {
+export class CartComponent {
   productList: Product[] = [];
   constructor(private cartService: CartService) {}
 
-  sumOfProducts = 0;
+  sumOfProducts: number = 0;
 
-  ngOnInit(): void {
-    this.cartService
-      .getCarts()
-      .subscribe((response: Product[]) => (this.productList = response));
+  ngOnInit() {
+    this.cartService.getCarts().subscribe({
+      next: (response) => {
+        this.productList = response;
+        this.cartService.CartList = response;
+      },
+    });
+  }
 
-    for (var i = 0; i < this.productList.length; i++) {
-      this.sumOfProducts =
-        this.sumOfProducts + Number(this.productList[i].price);
-    }
+  ngDoCheck() {
+    this.ShowTotal();
   }
 
   RemoveProduct(product: Product) {
@@ -31,6 +33,7 @@ export class CartComponent implements OnInit {
   }
 
   ShowTotal() {
+    this.sumOfProducts = 0;
     for (var i = 0; i < this.productList.length; i++) {
       this.sumOfProducts =
         this.sumOfProducts + Number(this.productList[i].price);
