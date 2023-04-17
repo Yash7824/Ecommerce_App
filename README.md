@@ -1,5 +1,5 @@
 # Ecommerce_App
-Asp.Net Core + Angular + Sql Server
+
 
 Softwares Used:
 1. Sql Server Management Studio for Database
