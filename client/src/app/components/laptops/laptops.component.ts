@@ -3,6 +3,8 @@ import { Laptop } from 'src/app/models/Laptop';
 import { Product } from 'src/app/models/Product';
 import { CartService } from 'src/app/services/cart.service';
 import { LaptopService } from 'src/app/services/laptop.service';
+import { NotificationAlertService } from 'src/app/services/notification--alert.service';
+import { SearchProductService } from 'src/app/services/search-product.service';
 
 @Component({
   selector: 'app-laptops',
@@ -14,18 +16,24 @@ export class LaptopsComponent {
 
   constructor(
     private laptopService: LaptopService,
-    private cartService: CartService
+    private cartService: CartService,
+    private notificationAlertService: NotificationAlertService
   ) {}
   ngOnInit() {
-    this.laptopService
-      .getLaptops()
-      .subscribe((result: Laptop[]) => (this.Laptops = result));
+    this.laptopService.getLaptops().subscribe({
+      next: (result) => {
+        this.Laptops = result;
+      },
+    });
   }
 
   SaveCart(laptop: Product) {
     for (var i = 0; i < this.cartService.CartList.length; i++) {
       if (this.cartService.CartList[i].title == laptop.title) {
-        alert(`${laptop.title} is already present`);
+        this.notificationAlertService.showWarning(
+          `already present.`,
+          `${laptop.title}`
+        );
         return;
       }
     }
@@ -35,7 +43,9 @@ export class LaptopsComponent {
       .subscribe(
         (response: Product[]) => (this.cartService.CartList = response)
       );
-
-    alert(`${laptop.title} has been added to cart`);
+    this.notificationAlertService.showSuccess(
+      `has been added.`,
+      `${laptop.title}`
+    );
   }
 }

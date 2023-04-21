@@ -1,0 +1,58 @@
+.SignUpPage {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKQZyQQ698LKS2V5niAusFpPkHoxe2Dh66jJa29POQ1qTnn9X3bPuZHQq_FMeLtH2wjGhCwWWOkGVgUMpaPNzrF7_A0v9S_0vlkCwfNw7nnoNIh-oJwFtYLWqufShSbtqkajwltpUV-a3dC7CRQzzbeYg1MDMviQcG7KiZcVQJ_EzTuFQxMe1IhX5EtA/s0/CITYSCAPE1142023.png");
+  background-repeat: no-repeat;
+  background-size: 1550px 680px;
+}
+
+#headline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+}
+
+#headline h1 {
+  color: white;
+}
+
+.SignUpForm {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  grid-template-columns: 1fr 1fr;
+  width: 37vw;
+  margin-left: 520px;
+  box-shadow: 0 0 10px;
+  background-image: linear-gradient(
+    to right top,
+    #4f0af8,
+    #0063ff,
+    #008aff,
+    #00a7fc,
+    #00bee5,
+    #00b7db,
+    #00b1d0,
+    #00aac6,
+    #0087bd,
+    #0063af,
+    #003c95,
+    #2b066d
+  );
+  padding: 50px;
+  border-radius: 80px;
+  opacity: 0.8;
+}
+
+.mb-3 {
+  width: 20vw;
+}
+
+#signUpButton {
+  width: 10vw;
+  margin-left: 40px;
+}

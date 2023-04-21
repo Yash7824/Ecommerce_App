@@ -1,6 +1,7 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/Product';
 import { CartService } from 'src/app/services/cart.service';
+import { NotificationAlertService } from 'src/app/services/notification--alert.service';
 
 @Component({
   selector: 'app-cart',
@@ -9,7 +10,10 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartComponent {
   productList: Product[] = [];
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private notificationAlertService: NotificationAlertService
+  ) {}
 
   sumOfProducts: number = 0;
 
@@ -30,6 +34,10 @@ export class CartComponent {
     this.cartService
       .deleteCart(product)
       .subscribe((response: Product[]) => (this.productList = response));
+    this.notificationAlertService.showError(
+      `has been removed`,
+      `${product.title}`
+    );
   }
 
   ShowTotal() {

@@ -1,0 +1,232 @@
+<div class="SignUpPage">
+  <div id="headline">
+    <h1>Sign Up</h1>
+  </div>
+  <form #signUpForm="ngForm" class="SignUpForm">
+    <div>
+      <div class="mb-3">
+        <mat-form-field class="example-full-width">
+          <mat-label>Enter First Name</mat-label>
+          <input
+            matInput
+            name="firstName"
+            id="firstName"
+            required
+            minlength="3"
+            maxlength="10"
+            [(ngModel)]="signUpObj.firstName"
+            #firstName="ngModel"
+          />
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="firstName.touched" name="validatingName">
+        <p *ngIf="firstName.errors?.['required']" class="error text-danger">
+          First Name is mandatory
+        </p>
+        <p *ngIf="firstName.errors?.['minlength']" class="text-danger">
+          minimum length should be 3
+        </p>
+        <p *ngIf="firstName.errors?.['maxlength']" class="text-danger">
+          maximum length should be 10. try again!
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <div class="mb-3">
+        <mat-form-field class="example-full-width">
+          <mat-label>Enter Last Name</mat-label>
+          <input
+            matInput
+            name="lastName"
+            id="lastName"
+            [(ngModel)]="signUpObj.lastName"
+            required
+            minlength="3"
+            maxlength="10"
+            #lastName="ngModel"
+          />
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="lastName.touched" name="validatingName">
+        <p *ngIf="lastName.errors?.['required']" class="error text-danger">
+          Last Name is mandatory
+        </p>
+        <p *ngIf="lastName.errors?.['minlength']" class="text-danger">
+          minimum length should be 3
+        </p>
+        <p *ngIf="lastName.errors?.['maxlength']" class="text-danger">
+          maximum length should be 10. try again!
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <div class="mb-3">
+        <mat-form-field class="example-full-width">
+          <mat-label>Enter User Name</mat-label>
+          <input
+            matInput
+            name="userName"
+            id="userName"
+            [(ngModel)]="signUpObj.userName"
+            required
+            minlength="3"
+            maxlength="10"
+            #userName="ngModel"
+          />
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="userName.touched" name="validatingName">
+        <p *ngIf="userName.errors?.['required']" class="error text-danger">
+          User Name is mandatory
+        </p>
+        <p *ngIf="userName.errors?.['minlength']" class="text-danger">
+          minimum length should be 3
+        </p>
+        <p *ngIf="userName.errors?.['maxlength']" class="text-danger">
+          maximum length should be 10. try again!
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <div class="mb-3">
+        <mat-form-field class="example-full-width">
+          <mat-label>Enter email</mat-label>
+          <input
+            matInput
+            type="email"
+            name="email"
+            id="email"
+            [(ngModel)]="signUpObj.email"
+            required
+            pattern="^[a-z][a-z0-9_]{3,}@[a-z]+\.[a-z]{2,4}"
+            #emailField="ngModel"
+          />
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="emailField.touched" name="validatingName">
+        <p *ngIf="emailField.errors?.['required']" class="error text-danger">
+          EMAIL ID is mandatory
+        </p>
+        <p *ngIf="emailField.errors?.['pattern']" class="text-danger">
+          pattern does not match
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <div class="mb-3">
+        <mat-form-field class="example-full-width">
+          <mat-label>Enter Password</mat-label>
+          <input
+            matInput
+            type="password"
+            name="password"
+            id="password"
+            [(ngModel)]="signUpObj.password"
+            required
+            minlength="3"
+            maxlength="10"
+            #passwordField="ngModel"
+          />
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="passwordField.touched" name="validatingName">
+        <p *ngIf="passwordField.errors?.['required']" class="error text-danger">
+          EMAIL ID is mandatory
+        </p>
+        <p *ngIf="passwordField.errors?.['minlength']">
+          minimum length should be 3
+        </p>
+        <p *ngIf="passwordField.errors?.['maxlength']">
+          maximum length should be 10. try again!
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Select Gender</mat-label>
+          <mat-select
+            [(ngModel)]="signUpObj.gender"
+            name="gender"
+            (ngModelOptions)="({ standalone: true })"
+            required
+            #genderField="ngModel"
+          >
+            <mat-option *ngFor="let gender of genders" [value]="gender.value">
+              {{ gender.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="genderField.touched" name="validatingName">
+        <p *ngIf="genderField.errors?.['required']" class="error text-danger">
+          Gender is mandatory
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <div class="mb-3">
+        <mat-form-field class="example-full-width">
+          <mat-label>Enter Age</mat-label>
+          <input
+            matInput
+            type="number"
+            name="age"
+            id="age"
+            [(ngModel)]="signUpObj.age"
+            required
+            #ageField="ngModel"
+          />
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="ageField.touched" name="validatingName">
+        <p *ngIf="ageField.errors?.['required']" class="error text-danger">
+          Age is mandatory
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <div class="mb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Choose a date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            [(ngModel)]="signUpObj.dob"
+            name="dob"
+          />
+          <mat-hint style="color: rgb(20, 244, 0)">MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div></div>
+    <button
+      mat-raised-button
+      color="primary"
+      id="signUpButton"
+      (click)="SignUp(signUpForm)"
+    >
+      Sign Up <mat-icon>bookmark</mat-icon>
+    </button>
+  </form>
+</div>

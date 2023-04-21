@@ -1,52 +1,99 @@
-
-.Accordion--Class{
-    width: 10vw;
-    position: absolute;
-    top: 57px;
-    right: 0;
-    z-index: 1;
+.Accordion--Class {
+  width: 10vw;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  z-index: 1;
 }
 
-.accordion-body{
-    display: flex;
-    flex-direction: column;
+.accordion-body {
+  display: flex;
+  flex-direction: column;
 }
 
-.Product--container{
-    overflow-x: hidden;
-    margin-top: 55px;
+.Product--container {
+  overflow-x: hidden;
+  margin-top: 0px;
 }
 
-.totalFlex{
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    align-items: center;
-    width: 15vw;
+.totalFlex {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  width: 15vw;
 }
 
-
-
-.Card--Container{
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-    background-image: linear-gradient(to right bottom, #e1e7f2, #d2e7f9, #bee8fe, #a6eafd, #8eecf5);
+.Card--Container {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  background-image: linear-gradient(
+    to right bottom,
+    #e1e7f2,
+    #d2e7f9,
+    #bee8fe,
+    #a6eafd,
+    #8eecf5
+  );
 }
 
-.Image--class{
-    justify-content: center;
-    align-items: center;
-    width: 20vw;
-
+.Image--class {
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
 }
 
-.img--class{
-    margin-top:50px;
-    margin-left: 70px;
+.img--class {
+  margin-top: 50px;
+  margin-left: 70px;
 }
 
-.Card--Body{
-    width: 50vw;
-    
+.Card--Body {
+  width: 50vw;
+}
+
+.example-container {
+  width: 98.932vw;
+  height: 100vh;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  overflow-x: hidden;
+}
+
+.example-sidenav-content {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  width: 100%;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
+  background-image: linear-gradient(
+    to right top,
+    #29c2ec,
+    #1aaecc,
+    #169aae,
+    #198792,
+    #1c7377,
+    #207678,
+    #247a79,
+    #287d7a,
+    #309896,
+    #37b5b3,
+    #3ed2d2,
+    #44f0f2
+  );
+}
+
+.sideNav {
+  width: 20vw;
+  position: absolute;
+  top: 10px;
+  right: -240px;
+  z-index: 9;
 }

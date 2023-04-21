@@ -1,0 +1,40 @@
+<div class="LoginPage">
+  <form class="Login--Container" #loginForm="ngForm">
+    <div>
+      <h1>Sign In</h1>
+    </div>
+    <div class="mb-3">
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        aria-describedby="emailHelp"
+        placeholder="Enter username"
+        [(ngModel)]="loginObj.email"
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+        placeholder="Enter password"
+        [(ngModel)]="loginObj.password"
+      />
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      (click)="LoginSubmit(loginForm)"
+    >
+      Login
+    </button>
+    <div class="my-2">
+      <span>Don't have Account?</span>
+      <a routerLink="signUp" class="mx-2">SignUp</a>
+    </div>
+  </form>
+</div>

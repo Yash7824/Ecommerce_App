@@ -15,5 +15,7 @@ namespace Backend.Data
         public DbSet<Book> Books => Set<Book>();
         public DbSet<Cloth> Cloths => Set<Cloth>();
         public DbSet<Cart> Carts => Set<Cart>();
+
+        public DbSet<SignUp> SignUps => Set<SignUp>(); 
     }
 }

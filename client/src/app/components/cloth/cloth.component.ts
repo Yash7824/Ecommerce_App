@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Cloth } from 'src/app/models/Cloth';
 import { CartService } from 'src/app/services/cart.service';
 import { ClothService } from 'src/app/services/cloth.service';
+import { NotificationAlertService } from 'src/app/services/notification--alert.service';
+import { SearchProductService } from 'src/app/services/search-product.service';
 
 @Component({
   selector: 'app-cloth',
@@ -13,7 +15,9 @@ export class ClothComponent {
 
   constructor(
     private clothService: ClothService,
-    private cartService: CartService
+    private cartService: CartService,
+    private notificationAlertService: NotificationAlertService,
+    private searchProductService: SearchProductService
   ) {}
 
   ngOnInit() {
@@ -27,7 +31,11 @@ export class ClothComponent {
   SaveCart(cloth: Cloth) {
     for (var i = 0; i < this.cartService.CartList.length; i++) {
       if (this.cartService.CartList[i].title == cloth.title) {
-        alert(`${cloth.title} is already present`);
+        this.notificationAlertService.showWarning(
+          `is already present`,
+          `${cloth.title}`
+        );
+
         return;
       }
     }
@@ -38,6 +46,9 @@ export class ClothComponent {
       },
     });
 
-    alert(`${cloth.title} has been added`);
+    this.notificationAlertService.showSuccess(
+      `has been added.`,
+      `${cloth.title}`
+    );
   }
 }

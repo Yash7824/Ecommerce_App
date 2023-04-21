@@ -1,0 +1,43 @@
+.cart {
+  display: flex;
+  flex-direction: row;
+}
+
+a {
+  margin-top: 2px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.inputField {
+  background-color: blue($color: #f6feff);
+}
+
+.searchBox {
+  display: flex;
+  flex-direction: row;
+  margin-right: 500px;
+}
+
+#searchText {
+  width: 40vw;
+  position: absolute;
+  bottom: 20px;
+  right: 500px;
+}
+
+#searchButton {
+  width: 3vw;
+  height: 37px;
+  position: absolute;
+  bottom: 20px;
+  right: 450px;
+}

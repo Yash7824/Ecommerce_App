@@ -1,66 +1,56 @@
-<div
-  class="accordion Accordion--Class"
-  id="accordionExample"
-  *ngIf="productList.length > 0"
->
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button
-        class="accordion-button"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#collapseOne"
-        aria-expanded="true"
-        aria-controls="collapseOne"
-      >
-        Show Total
-      </button>
-    </h2>
-    <div
-      id="collapseOne"
-      class="accordion-collapse collapse show"
-      data-bs-parent="#accordionExample"
-    >
-      <div class="accordion-body">
-        <p>{{ sumOfProducts | currency }}</p>
-        <button class="btn btn-warning">CheckOut</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div *ngIf="productList.length == 0" class="alert alert-danger col-md-12">
   <h1>Your Cart is empty</h1>
 </div>
 
-<div class="Product--container">
-  <div *ngFor="let product of productList" class="Card--Container card">
-    <div class="my-2 Image--class">
-      <img
-        class="img--class"
-        src="{{ product.imageUrl }}"
-        alt="Card image cap"
-        style="width: 125px; height: 140px"
-      />
-    </div>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side" position="end">
+    <h2>Total:</h2>
+    <p>{{ sumOfProducts | currency }}</p>
+    <button class="btn btn-warning">CheckOut</button>
+  </mat-drawer>
 
-    <div class="card-body Card--Body">
-      <h5 class="card-title">{{ product.title }}</h5>
-      <p class="card-text">
-        {{ product.description }}
-      </p>
-      <p class="card-text">
-        {{ product.price | currency }}
-      </p>
-      <div class="Rating">
-        <p>Rating</p>
-        <p class="ratingProduct">{{ product.rating }}</p>
-      </div>
-
-      <button class="btn btn-primary">Buy Now</button>
-      <button class="btn btn-danger mx-2" (click)="RemoveProduct(product)">
-        Remove
+  <div class="example-sidenav-content">
+    <div class="sideNav">
+      <button
+        type="button"
+        mat-mini-fab
+        color="primary"
+        (click)="drawer.toggle()"
+      >
+        <mat-icon>menu</mat-icon>
       </button>
     </div>
+
+    <div class="Product--container">
+      <div *ngFor="let product of productList" class="Card--Container card">
+        <div class="my-2 Image--class">
+          <img
+            class="img--class"
+            src="{{ product.imageUrl }}"
+            alt="Card image cap"
+            style="width: 125px; height: 140px"
+          />
+        </div>
+
+        <div class="card-body Card--Body">
+          <h5 class="card-title">{{ product.title }}</h5>
+          <p class="card-text">
+            {{ product.description }}
+          </p>
+          <p class="card-text">
+            {{ product.price | currency }}
+          </p>
+          <div class="Rating">
+            <p>Rating</p>
+            <p class="ratingProduct">{{ product.rating }}</p>
+          </div>
+
+          <button class="btn btn-primary">Buy Now</button>
+          <button class="btn btn-danger mx-2" (click)="RemoveProduct(product)">
+            Remove
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</mat-drawer-container>

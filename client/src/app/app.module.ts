@@ -11,6 +11,18 @@ import { CartComponent } from './components/cart/cart.component';
 import { MobileComponent } from './components/mobile/mobile.component';
 import { BookComponent } from './components/book/book.component';
 import { ClothComponent } from './components/cloth/cloth.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { SearchPageComponent } from './components/search-page/search-page.component';
+import { MatButtonModule } from '@angular/material/button';
+import { LoginComponent } from './components/login/login.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -22,8 +34,25 @@ import { ClothComponent } from './components/cloth/cloth.component';
     MobileComponent,
     BookComponent,
     ClothComponent,
+    SearchPageComponent,
+    LoginComponent,
+    SignUpComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatInputModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatSidenavModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

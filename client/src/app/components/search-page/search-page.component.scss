@@ -1,0 +1,32 @@
+.Product--container {
+  overflow-x: hidden;
+}
+
+.Card--Container {
+  display: flex;
+  flex-direction: row;
+  width: 99vw;
+  background-image: linear-gradient(
+    to right bottom,
+    #e1e7f2,
+    #d2e7f9,
+    #bee8fe,
+    #a6eafd,
+    #8eecf5
+  );
+}
+
+.Image--class {
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+}
+
+.img--class {
+  margin-top: 50px;
+  margin-left: 70px;
+}
+
+.Card--Body {
+  width: 50vw;
+}

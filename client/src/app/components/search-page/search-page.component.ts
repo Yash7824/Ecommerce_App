@@ -1,52 +1,42 @@
 import { Component } from '@angular/core';
-import { Mobile } from 'src/app/models/Mobile';
 import { Product } from 'src/app/models/Product';
 import { CartService } from 'src/app/services/cart.service';
-import { MobileService } from 'src/app/services/mobile.service';
 import { NotificationAlertService } from 'src/app/services/notification--alert.service';
 import { SearchProductService } from 'src/app/services/search-product.service';
 
 @Component({
-  selector: 'app-mobile',
-  templateUrl: './mobile.component.html',
-  styleUrls: ['./mobile.component.scss'],
+  selector: 'app-search-page',
+  templateUrl: './search-page.component.html',
+  styleUrls: ['./search-page.component.scss'],
 })
-export class MobileComponent {
-  Mobiles: Mobile[] = [];
+export class SearchPageComponent {
+  SearchedProducts = this.searchProductService.searchproducts;
+
   constructor(
-    private mobileService: MobileService,
     private cartService: CartService,
-    private notificationAlertService: NotificationAlertService
+    private notificationAlertService: NotificationAlertService,
+    private searchProductService: SearchProductService
   ) {}
 
-  ngOnInit() {
-    this.mobileService.getMobiles().subscribe({
-      next: (response) => {
-        this.Mobiles = response;
-      },
-    });
-  }
-
-  SaveCart(mobile: Product) {
+  SaveCart(product: Product) {
     for (var i = 0; i < this.cartService.CartList.length; i++) {
-      if (this.cartService.CartList[i].title == mobile.title) {
+      if (this.cartService.CartList[i].title == product.title) {
         this.notificationAlertService.showWarning(
           `already present.`,
-          `${mobile.title}`
+          `${product.title}`
         );
         return;
       }
     }
 
     this.cartService
-      .addCart(mobile)
+      .addCart(product)
       .subscribe(
         (response: Product[]) => (this.cartService.CartList = response)
       );
-
     this.notificationAlertService.showSuccess(
       `has been added.`,
-      `${mobile.title}`
+      `${product.title}`
     );
   }
 }

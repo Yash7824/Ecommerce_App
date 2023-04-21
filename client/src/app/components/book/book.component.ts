@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Book } from 'src/app/models/Book';
 import { BookService } from 'src/app/services/book.service';
 import { CartService } from 'src/app/services/cart.service';
+import { NotificationAlertService } from 'src/app/services/notification--alert.service';
 
 @Component({
   selector: 'app-book',
@@ -13,7 +14,8 @@ export class BookComponent {
 
   constructor(
     private bookService: BookService,
-    private cartService: CartService
+    private cartService: CartService,
+    private notificationAlertService: NotificationAlertService
   ) {}
 
   ngOnInit() {
@@ -27,7 +29,11 @@ export class BookComponent {
   SaveCart(book: Book) {
     for (var i = 0; i < this.cartService.CartList.length; i++) {
       if (this.cartService.CartList[i].title == book.title) {
-        alert(`${book.title} is already present`);
+        this.notificationAlertService.showWarning(
+          `is already present`,
+          `${book.title}`
+        );
+
         return;
       }
     }
@@ -38,6 +44,9 @@ export class BookComponent {
       },
     });
 
-    alert(`${book.title} has been added`);
+    this.notificationAlertService.showSuccess(
+      `has been added`,
+      `${book.title}`
+    );
   }
 }

@@ -1,0 +1,30 @@
+<div class="Product--container">
+  <div *ngFor="let product of SearchedProducts" class="Card--Container card">
+    <div class="my-2 Image--class" style="width: 18rem">
+      <img
+        class="img--class"
+        src="{{ product.imageUrl }}"
+        alt="Card image cap"
+        style="width: 125px; height: 100px; align-self: center"
+      />
+    </div>
+
+    <div class="card-body Card--Body">
+      <h5 class="card-title">{{ product.title }}</h5>
+      <p class="card-text">
+        {{ product.description }}
+      </p>
+      <p class="card-text">
+        {{ product.price | currency }}
+      </p>
+      <div class="Rating">
+        <p>Rating</p>
+        <p class="ratingProduct">{{ product.rating }}</p>
+      </div>
+
+      <button class="btn btn-warning" (click)="SaveCart(product)">
+        Add To Cart
+      </button>
+    </div>
+  </div>
+</div>
