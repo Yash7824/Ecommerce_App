@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'mobiles', component: MobileComponent },
   { path: 'books', component: BookComponent },
   { path: 'clothes', component: ClothComponent },
-  { path: 'cart', component: CartComponent },
+  { path: 'cart', component: CartComponent, canActivate: [LoginGuard] },
   {
     path: 'searchPage',
     component: SearchPageComponent,

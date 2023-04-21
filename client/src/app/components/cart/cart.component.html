@@ -2,55 +2,60 @@
   <h1>Your Cart is empty</h1>
 </div>
 
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side" position="end">
-    <h2>Total:</h2>
-    <p>{{ sumOfProducts | currency }}</p>
-    <button class="btn btn-warning">CheckOut</button>
-  </mat-drawer>
+<div *ngIf="productList.length != 0">
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side" position="end">
+      <h2>Total:</h2>
+      <p>{{ sumOfProducts | currency }}</p>
+      <button class="btn btn-warning">CheckOut</button>
+    </mat-drawer>
 
-  <div class="example-sidenav-content">
-    <div class="sideNav">
-      <button
-        type="button"
-        mat-mini-fab
-        color="primary"
-        (click)="drawer.toggle()"
-      >
-        <mat-icon>menu</mat-icon>
-      </button>
-    </div>
+    <div class="example-sidenav-content">
+      <div class="sideNav">
+        <button
+          type="button"
+          mat-mini-fab
+          color="primary"
+          (click)="drawer.toggle()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
 
-    <div class="Product--container">
-      <div *ngFor="let product of productList" class="Card--Container card">
-        <div class="my-2 Image--class">
-          <img
-            class="img--class"
-            src="{{ product.imageUrl }}"
-            alt="Card image cap"
-            style="width: 125px; height: 140px"
-          />
-        </div>
-
-        <div class="card-body Card--Body">
-          <h5 class="card-title">{{ product.title }}</h5>
-          <p class="card-text">
-            {{ product.description }}
-          </p>
-          <p class="card-text">
-            {{ product.price | currency }}
-          </p>
-          <div class="Rating">
-            <p>Rating</p>
-            <p class="ratingProduct">{{ product.rating }}</p>
+      <div class="Product--container">
+        <div *ngFor="let product of productList" class="Card--Container card">
+          <div class="my-2 Image--class">
+            <img
+              class="img--class"
+              src="{{ product.imageUrl }}"
+              alt="Card image cap"
+              style="width: 125px; height: 140px"
+            />
           </div>
 
-          <button class="btn btn-primary">Buy Now</button>
-          <button class="btn btn-danger mx-2" (click)="RemoveProduct(product)">
-            Remove
-          </button>
+          <div class="card-body Card--Body">
+            <h5 class="card-title">{{ product.title }}</h5>
+            <p class="card-text">
+              {{ product.description }}
+            </p>
+            <p class="card-text">
+              {{ product.price | currency }}
+            </p>
+            <div class="Rating">
+              <p>Rating</p>
+              <p class="ratingProduct">{{ product.rating }}</p>
+            </div>
+
+            <button class="btn btn-primary">Buy Now</button>
+            <button
+              class="btn btn-danger mx-2"
+              (click)="RemoveProduct(product)"
+            >
+              Remove
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</mat-drawer-container>
+  </mat-drawer-container>
+</div>
