@@ -10,6 +10,7 @@ import { SearchPageComponent } from './components/search-page/search-page.compon
 import { LoginGuard } from './guards/login.guard';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
     component: SearchPageComponent,
     canActivate: [LoginGuard],
   },
+  { path: 'checkOut', component: CheckoutComponent },
 ];
 
 @NgModule({

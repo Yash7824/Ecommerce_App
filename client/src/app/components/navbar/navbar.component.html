@@ -58,6 +58,17 @@
         </button>
       </form>
 
+      <div class="dropdown" id="userProfile" *ngIf="currentUser">
+        <button class="dropbtn">
+          <p>Hello {{ currentUser.userName }}</p>
+        </button>
+        <div class="dropdown-content">
+          <a routerLink="#">Accounts</a>
+          <a routerLink="#">Orders</a>
+          <a routerLink="#">Membership</a>
+        </div>
+      </div>
+
       <div class="loginButtons">
         <button
           mat-raised-button

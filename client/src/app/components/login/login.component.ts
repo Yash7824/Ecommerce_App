@@ -36,6 +36,7 @@ export class LoginComponent {
             'has logged in',
             `${item.userName}`
           );
+          this.loginService.currentLoggedUser = item;
           this.route.navigate(['home']);
           this.loginService.LoginName = 'LogOut';
           return;
@@ -44,7 +45,6 @@ export class LoginComponent {
     } else if (this.loginService.LoginName === 'LogOut') {
       this.loginService.loginValue = false;
       this.loginService.LoginName = 'Login';
-
       this.route.navigate(['']);
     }
 

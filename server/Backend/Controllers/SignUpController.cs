@@ -25,6 +25,48 @@ namespace Backend.Controllers
         [HttpPost]
         public async Task<ActionResult<List<SignUp>>> addUser(SignUp signUp)
         {
+            var obj = await _db.SignUps.FindAsync(signUp.email);
+
+            if(obj != null)
+            {
+                return BadRequest("User already present");
+            }
+
+            if(signUp.email == null)
+            {
+                return BadRequest("Email should be provided");
+            }
+
+            if(signUp.firstName.Length < 3 || signUp.firstName.Length > 10)
+            {
+                return BadRequest("First Name should be atleast 3 letters and atmost 10 characters");
+            }
+
+            if (signUp.lastName.Length < 3 || signUp.lastName.Length > 10)
+            {
+                return BadRequest("Last Name should be atleast 3 letters and atmost 10 characters");
+            }
+
+            if (signUp.userName.Length < 3 || signUp.userName.Length > 10)
+            {
+                return BadRequest("User Name should be atleast 3 letters and atmost 10 characters");
+            }
+
+            if (signUp.password.Length < 3 || signUp.password.Length > 10)
+            {
+                return BadRequest("Password should be atleast 3 letters and atmost 10 characters");
+            }
+
+            if (signUp.gender == null)
+            {
+                return BadRequest("Gender should be provided");
+            }
+
+            if (signUp.age == 0)
+            {
+                return BadRequest("Age should be greater than 0");
+            }
+
             _db.SignUps.Add(signUp);
             _db.SaveChanges();
             return Ok(await _db.SignUps.ToListAsync());

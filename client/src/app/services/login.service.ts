@@ -16,6 +16,8 @@ export class LoginService {
   loginValue: boolean = false;
   LoginName: string = 'Login';
 
+  currentLoggedUser!: SignUp;
+
   public getUsers(): Observable<SignUp[]> {
     return this.http.get<SignUp[]>(`${environment.apiUrl}/${this.url}`);
   }

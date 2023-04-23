@@ -23,6 +23,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     SearchPageComponent,
     LoginComponent,
     SignUpComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

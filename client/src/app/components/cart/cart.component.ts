@@ -1,4 +1,5 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/Product';
 import { CartService } from 'src/app/services/cart.service';
 import { NotificationAlertService } from 'src/app/services/notification--alert.service';
@@ -12,7 +13,8 @@ export class CartComponent {
   productList: Product[] = [];
   constructor(
     private cartService: CartService,
-    private notificationAlertService: NotificationAlertService
+    private notificationAlertService: NotificationAlertService,
+    private router: Router
   ) {}
 
   sumOfProducts: number = 0;
@@ -46,5 +48,9 @@ export class CartComponent {
       this.sumOfProducts =
         this.sumOfProducts + Number(this.productList[i].price);
     }
+  }
+
+  Buy() {
+    this.router.navigate(['checkOut']);
   }
 }

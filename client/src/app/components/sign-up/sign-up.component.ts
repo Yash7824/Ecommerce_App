@@ -36,16 +36,31 @@ export class SignUpComponent {
   };
 
   SignUp(signUpForm: NgForm) {
-    this.loginService.postUser(this.signUpObj).subscribe({
-      next: (response) => {
-        this.loginService.LoggedUser = response;
-        this.notificationAlertService.showSuccess(
-          'User Created',
-          `${this.signUpObj.userName}`
-        );
-      },
-    });
+    if (
+      this.signUpObj.firstName !== '' &&
+      this.signUpObj.lastName !== '' &&
+      this.signUpObj.userName !== '' &&
+      this.signUpObj.email !== '' &&
+      this.signUpObj.password !== '' &&
+      this.signUpObj.gender !== '' &&
+      this.signUpObj.age !== 0
+    ) {
+      this.loginService.postUser(this.signUpObj).subscribe({
+        next: (response) => {
+          this.loginService.LoggedUser = response;
+          this.notificationAlertService.showSuccess(
+            'User Created',
+            `${this.signUpObj.userName}`
+          );
+        },
+      });
 
-    this.route.navigateByUrl('');
+      this.route.navigateByUrl('');
+    } else {
+      this.notificationAlertService.showWarning(
+        'Fill All the Details',
+        'Warning'
+      );
+    }
   }
 }

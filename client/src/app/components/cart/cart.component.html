@@ -7,7 +7,7 @@
     <mat-drawer #drawer class="example-sidenav" mode="side" position="end">
       <h2>Total:</h2>
       <p>{{ sumOfProducts | currency }}</p>
-      <button class="btn btn-warning">CheckOut</button>
+      <button class="btn btn-warning" (click)="Buy()">CheckOut</button>
     </mat-drawer>
 
     <div class="example-sidenav-content">
@@ -34,7 +34,7 @@
           </div>
 
           <div class="card-body Card--Body">
-            <h5 class="card-title">{{ product.title }}</h5>
+            <h1 class="card-title">{{ product.title }}</h1>
             <p class="card-text">
               {{ product.description }}
             </p>
