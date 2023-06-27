@@ -16,17 +16,17 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'signUp', component: SignUpComponent },
   { path: 'home', component: HomeComponent, canActivate: [LoginGuard] },
-  { path: 'laptops', component: LaptopsComponent },
-  { path: 'mobiles', component: MobileComponent },
-  { path: 'books', component: BookComponent },
-  { path: 'clothes', component: ClothComponent },
+  { path: 'laptops', component: LaptopsComponent, canActivate: [LoginGuard] },
+  { path: 'mobiles', component: MobileComponent, canActivate: [LoginGuard] },
+  { path: 'books', component: BookComponent, canActivate: [LoginGuard] },
+  { path: 'clothes', component: ClothComponent, canActivate: [LoginGuard] },
   { path: 'cart', component: CartComponent, canActivate: [LoginGuard] },
   {
     path: 'searchPage',
     component: SearchPageComponent,
     canActivate: [LoginGuard],
   },
-  { path: 'checkOut', component: CheckoutComponent },
+  { path: 'checkOut', component: CheckoutComponent, canActivate: [LoginGuard] },
 ];
 
 @NgModule({

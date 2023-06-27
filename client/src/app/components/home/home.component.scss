@@ -1,19 +1,26 @@
-.HomeGrid{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    row-gap: 10px;
-    column-gap: 10px;
-    justify-content: center;
-    text-align: center;
-    background-image: linear-gradient(to top, #051937, #04436a, #00739c, #00a7ca, #16def0);
-    width: 100vw;
-    height: 92vh;
-    overflow: hidden;
-    position: fixed;
-    
+.HomeGrid {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  width: 100vw;
+  height: 92vh;
+  background-image: linear-gradient(
+    to top,
+    #051937,
+    #04436a,
+    #00739c,
+    #00a7ca,
+    #16def0
+  );
 }
 
-
-.cardGrid{
-    background-image: linear-gradient(to right bottom, #f35c7b, #ff7249, #f59b00, #c4c600, #5ceb12);
+.cardGrid {
+  background-image: linear-gradient(
+    to right bottom,
+    #f35c7b,
+    #ff7249,
+    #f59b00,
+    #c4c600,
+    #5ceb12
+  );
 }

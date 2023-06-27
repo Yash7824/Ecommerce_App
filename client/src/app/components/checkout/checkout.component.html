@@ -1,1 +1,197 @@
-<p>checkout works!</p>
+<div>
+  <mat-stepper [linear]="!isLinear" #stepper class="CheckOut--Page">
+    <mat-step [stepControl]="firstFormGroup" label="Mention Your Address">
+      <form [formGroup]="firstFormGroup" class="firstFormAddress">
+        <mat-form-field appearance="fill">
+          <mat-label>Flat</mat-label>
+          <input
+            matInput
+            formControlName="FlatCtrl"
+            placeholder="Flat"
+            required
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Street</mat-label>
+          <input
+            matInput
+            formControlName="StreetCtrl"
+            placeholder="Avenue Street"
+            required
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>City</mat-label>
+          <input
+            matInput
+            formControlName="CityCtrl"
+            placeholder="City"
+            required
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>State</mat-label>
+          <input
+            matInput
+            formControlName="StateCtrl"
+            placeholder="State"
+            required
+          />
+        </mat-form-field>
+
+        <div>
+          <button mat-button matStepperNext [disabled]="notAllowFirst">
+            Next
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Payment Method</ng-template>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Payment Method</mat-label>
+          <mat-select formControlName="payment">
+            <mat-option *ngFor="let method of methods" [value]="method.value">
+              {{ method.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div *ngIf="selectedMethod == 'Credit'" class="SelectedMethodClass">
+          <mat-form-field appearance="fill">
+            <mat-label>Credit Card Number</mat-label>
+            <input
+              matInput
+              placeholder="xxxx xxxx xxxx xxxx"
+              formControlName="CardNumberCtrl"
+              required
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>CVV</mat-label>
+            <input
+              matInput
+              placeholder="xxx"
+              formControlName="CvvCtrl"
+              required
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Expiry Date</mat-label>
+            <input
+              matInput
+              placeholder="Date"
+              formControlName="ExpiryCtrl"
+              required
+            />
+          </mat-form-field>
+        </div>
+
+        <div *ngIf="selectedMethod == 'Debit'" class="SelectedMethodClass">
+          <mat-form-field appearance="fill">
+            <mat-label>Debit Card Number</mat-label>
+            <input
+              matInput
+              placeholder="xxxx xxxx xxxx xxxx"
+              formControlName="CardNumberCtrl"
+              required
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>CVV</mat-label>
+            <input
+              matInput
+              placeholder="xxx"
+              formControlName="CvvCtrl"
+              required
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Expiry Date</mat-label>
+            <input
+              matInput
+              placeholder="Date"
+              formControlName="ExpiryCtrl"
+              required
+            />
+          </mat-form-field>
+        </div>
+
+        <div *ngIf="selectedMethod == 'NetBanking'" class="SelectedMethodClass">
+          <mat-form-field appearance="fill">
+            <mat-label>Customer ID</mat-label>
+            <input
+              matInput
+              placeholder="Customer Id"
+              formControlName="CustomerIdCtrl"
+              required
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              type="password"
+              placeholder="Password"
+              formControlName="PasswordCtrl"
+              required
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Account Number</mat-label>
+            <input
+              matInput
+              placeholder="Acc. Number"
+              formControlName="AccNumCtrl"
+              required
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>IFSC Code</mat-label>
+            <input
+              matInput
+              placeholder="IFSC Code"
+              formControlName="IfscCtrl"
+              required
+            />
+          </mat-form-field>
+        </div>
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button
+            mat-button
+            matStepperNext
+            [disabled]="notAllowSecond"
+            (click)="Purchase()"
+          >
+            Purchase
+          </button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Confirmation</ng-template>
+      <h2>Payment Done</h2>
+      <p>Check Your Email for verification</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button routerLink="/home">Home</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</div>

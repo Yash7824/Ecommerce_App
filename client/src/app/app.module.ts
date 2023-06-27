@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { LaptopsComponent } from './components/laptops/laptops.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './components/cart/cart.component';
 import { MobileComponent } from './components/mobile/mobile.component';
 import { BookComponent } from './components/book/book.component';
@@ -24,6 +24,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,8 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     MatNativeDateModule,
     MatSelectModule,
     MatSidenavModule,
+    MatStepperModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

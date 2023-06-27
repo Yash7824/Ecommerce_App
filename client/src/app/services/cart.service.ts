@@ -40,4 +40,8 @@ export class CartService {
       `${environment.apiUrl}/${this.url}/${product.id}`
     );
   }
+
+  public deleteAllCart(): Observable<Product[]> {
+    return this.http.delete<Product[]>(`${environment.apiUrl}/${this.url}`);
+  }
 }
